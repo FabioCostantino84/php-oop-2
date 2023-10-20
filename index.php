@@ -21,19 +21,26 @@ class Product
 {
     public $name;
     public $type;
+    public $description;
     public $price;
     public $image;
     public $category;
 
-    public function __construct($name, $type, $price, $image, $category)
+    public function __construct($name, $type, $description, $price, $image, $category)
     {
         $this->name = $name;
         $this->type = $type;
+        $this->description = $description;
         $this->price = $price;
         $this->image = $image;
         $this->category = $category;
     }
 }
+
+$products = [
+    new Product('monge', 'cibo','Monge All Breeds Adult Salmone e Riso', '49,99', 'monge_salmone_riso', 'cani'),
+    new Product('natural tarainer', 'cibo', 'Natural Trainer Gatto Sterilised Salmone', '2,99', 'natural_trainer_salmone', 'gatti'),
+]
 
 
 
