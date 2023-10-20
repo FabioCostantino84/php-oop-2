@@ -26,7 +26,7 @@ class Product
     public $image;
     public $category;
 
-    public function __construct($name, $type, $description, $price, $image, $category)
+    public function __construct($name, $type, $description, $price, $image, Category $category)
     {
         $this->name = $name;
         $this->type = $type;
@@ -35,21 +35,51 @@ class Product
         $this->image = $image;
         $this->category = $category;
     }
-}
+};
 
-$products = [
-    new Product('lovedi', 'giochi','Palla Tpr con Punte Fucsia', '4,99', 'lovedi_palla_fucsia', 'cani'),
-    new Product('mast', 'cucce','Brandina in alluminio blu', '29,99', 'mast_brandina', 'cani'),
-    new Product('monge', 'cibo','Monge All Breeds Adult Salmone e Riso', '49,99', 'monge_salmone_riso', 'cani'),
+class Category
+{
+    public $animals;
+
+    public function __construct($animals)
+    {
+        $this->animals = $animals;
+        
+    }
+
+};
+
+$products = new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', '4,99', 'lovedi_palla_fucsia', new Category('pippo'));
+
+$array = array($products);
+$result = $products->category?->animals;
+
+/* $products = [
+    new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', '4,99', 'lovedi_palla_fucsia', 'cani'),
+    new Product('mast', 'cucce', 'Brandina in alluminio blu', '29,99', 'mast_brandina', 'cani'),
+    new Product('monge', 'cibo', 'Monge All Breeds Adult Salmone e Riso', '49,99', 'monge_salmone_riso', 'cani'),
     new Product('natural tarainer', 'cibo', 'Natural Trainer Gatto Sterilised Salmone', '2,99', 'natural_trainer_salmone', 'gatti'),
     new Product('yes', 'giochi', 'Pallina Peluche Rosa', '1,99', 'pallina_peluche_rosa', 'gatti'),
     new Product('luna e teo', 'cucce', 'Cuccia Ciambella Pelosa Beige', '27,99', 'ciambella_pelosa_beige', 'gatti'),
-]
+]; */
 
-
-
-
-
-
+var_dump($products);
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<?php
+echo $result;
+
+?>
+
+</body>
+</html>
