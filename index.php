@@ -14,3 +14,29 @@ Bonus (non opzionale):
 organizzate il progetto come visto stamattina a lezione usando varie sottocartelle per inserire classi, layout e dati.
 
  -->
+
+<?php
+
+class Product
+{
+    public $name;
+    public $type;
+    public $price;
+    public $image;
+
+    public function __construct($name, $type, $price, $image)
+    {
+        $this->name = $name;
+        $this->type = $type;
+        $this->price = $price;
+        $this->image = $image;
+    }
+}
+
+
+
+
+
+
+
+?>
