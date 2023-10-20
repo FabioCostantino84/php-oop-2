@@ -23,13 +23,15 @@ class Product
     public $type;
     public $price;
     public $image;
+    public $category;
 
-    public function __construct($name, $type, $price, $image)
+    public function __construct($name, $type, $price, $image, $category)
     {
         $this->name = $name;
         $this->type = $type;
         $this->price = $price;
         $this->image = $image;
+        $this->category = $category;
     }
 }
 
