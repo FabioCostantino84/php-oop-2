@@ -25,8 +25,9 @@ class Product
     public $price;
     public $image;
     public $category;
+    public $icon;
 
-    public function __construct($name, $type, $description, $price, $image, Category $category)
+    public function __construct($name, $type, $description, $price, $image, Category $category, $icon)
     {
         $this->name = $name;
         $this->type = $type;
@@ -34,6 +35,7 @@ class Product
         $this->price = $price;
         $this->image = $image;
         $this->category = $category;
+        $this->icon = $icon;
     }
 };
 
@@ -49,10 +51,15 @@ class Category
 
 };
 
-$products = new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', '4,99', 'lovedi_palla_fucsia', new Category('pippo'));
+$products = [new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', '4,99', 'lovedi_palla_fucsia', new Category('cani'), 'fa-solid fa-dog'),
+    new Product('mast', 'cucce', 'Brandina in alluminio blu', '29,99', 'mast_brandina', new Category('cani'),'fa-solid fa-dog'),
+    new Product('monge', 'cibo', 'Monge All Breeds Adult Salmone e Riso', '49,99', 'monge_salmone_riso',new Category('cani'), 'fa-solid fa-dog'),
+    new Product('natural tarainer', 'cibo', 'Natural Trainer Gatto Sterilised Salmone', '2,99', 'natural_trainer_salmone', new Category('gatti'), 'fa-solid fa-dog'),
+    new Product('yes', 'giochi', 'Pallina Peluche Rosa', '1,99', 'pallina_peluche_rosa', new Category('gatti'), 'fa-solid fa-dog'),
+    new Product('luna e teo', 'cucce', 'Cuccia Ciambella Pelosa Beige', '27,99', 'ciambella_pelosa_beige', new Category('gatti'), 'fa-solid fa-dog')];
 
 $array = array($products);
-$result = $products->category?->animals;
+$result = $products[0]->category?->animals;
 
 /* $products = [
     new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', '4,99', 'lovedi_palla_fucsia', 'cani'),
@@ -63,7 +70,7 @@ $result = $products->category?->animals;
     new Product('luna e teo', 'cucce', 'Cuccia Ciambella Pelosa Beige', '27,99', 'ciambella_pelosa_beige', 'gatti'),
 ]; */
 
-var_dump($products);
+/* var_dump($products); */
 
 ?>
 
