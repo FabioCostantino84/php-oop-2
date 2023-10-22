@@ -24,10 +24,9 @@ require __DIR__ . '/Models/Category.php';
 require __DIR__ . '/db.php';
 
 
-
-
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
