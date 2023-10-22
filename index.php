@@ -17,65 +17,14 @@ organizzate il progetto come visto stamattina a lezione usando varie sottocartel
 
 <?php
 
-/* CREAZIONE DELLA CLASSE */
-class Product
-{
-    // Variabili di istanza (queste rappresentano le caratteristiche di un prodotto).
-    // Queste sono public, quindi si può accedere dall'esterno della classe.
-    public $name;
-    public $type;
-    public $description;
-    public $price;
-    public $image;
-    public $category;
-    /* public $icon; */
+require __dir__ . '/Models/Product.php';
+
+require __DIR__ . '/Models/Category.php';
+
+require __DIR__ . '/db.php';
 
 
-    /* COSTRUTTORE DELLA CLASSE */
 
-    // Quando si crea un nuovo oggetto, in questo caso "Product", il costruttore prende i dati necessari per creare un nuovo prodotto.
-    public function __construct($name, $type, $description, $price, $image, Category $category, /* $icon */)
-    {
-        //  I dati vengono assegnati alle proprietà dell'oggetto Product utilizzando la sintassi $this->proprietà = variabile.
-        $this->name = $name;
-        $this->type = $type;
-        $this->description = $description;
-        $this->price = $price;
-        $this->image = $image;
-        $this->category = $category;
-        /* $this->icon = $icon; */
-    }
-}
-
-/* CREAZIONE DI UNA SECONDA CLASSE */
-
-// Classe figlia di "Product"
-class Category
-{
-    public $animals;
-
-    public function __construct($animals)
-    {
-        $this->animals = $animals;
-    }
-}
-
-// Array che contiene una serie di oggetti "Product"
-$products = [
-
-    // Ogni prodotto viene creato grazie ai dati del costruttore della classe "Product"
-    new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', 4.99, './img/lovedi_palla_fucsia.webp', new Category(['cani'])),
-    new Product('mast', 'cucce', 'Brandina in alluminio blu', 29.99, './img/mast_brandina.webp', new Category(['cani'])),
-    new Product('monge', 'cibo', 'Monge All Breeds Adult Salmone e Riso', 49.99, './img/monge_salmone_riso.webp', new Category(['cani'])),
-    new Product('natural trainer', 'cibo', 'Natural Trainer Gatto Sterilised Salmone', 2.99, './img/natural_trainer_salmone.webp', new Category(['gatti'])),
-    new Product('yes', 'giochi', 'Pallina Peluche Rosa', 1.99, './img/pallina_peluche_rosa.webp', new Category(['gatti'])),
-    new Product('luna e teo', 'cucce', 'Cuccia Ciambella Pelosa Beige', 27.99, './img/ciambella_pelosa_beige.webp', new Category(['gatti'])),
-];
-
-$animalsType = [
-    new Category(['cani']),
-    new Category(['gatti']),
-];
 
 
 ?>
