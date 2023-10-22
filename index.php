@@ -36,8 +36,9 @@ class Product
         $this->image = $image;
         $this->category = $category;
         $this->icon = $icon;
+
     }
-};
+}
 
 class Category
 {
@@ -46,47 +47,68 @@ class Category
     public function __construct($animals)
     {
         $this->animals = $animals;
-        
     }
+}
 
-};
 
-$products = [new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', '4,99', 'lovedi_palla_fucsia', new Category('cani'), 'fa-solid fa-dog'),
-    new Product('mast', 'cucce', 'Brandina in alluminio blu', '29,99', 'mast_brandina', new Category('cani'),'fa-solid fa-dog'),
-    new Product('monge', 'cibo', 'Monge All Breeds Adult Salmone e Riso', '49,99', 'monge_salmone_riso',new Category('cani'), 'fa-solid fa-dog'),
-    new Product('natural tarainer', 'cibo', 'Natural Trainer Gatto Sterilised Salmone', '2,99', 'natural_trainer_salmone', new Category('gatti'), 'fa-solid fa-dog'),
-    new Product('yes', 'giochi', 'Pallina Peluche Rosa', '1,99', 'pallina_peluche_rosa', new Category('gatti'), 'fa-solid fa-dog'),
-    new Product('luna e teo', 'cucce', 'Cuccia Ciambella Pelosa Beige', '27,99', 'ciambella_pelosa_beige', new Category('gatti'), 'fa-solid fa-dog')];
+$products = [
+    new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', 4.99, './img/lovedi_palla_fucsia.webp', new Category(['cani']), 'fa-solid fa-dog'),
+    new Product('mast', 'cucce', 'Brandina in alluminio blu', 29.99, './img/mast_brandina.webp', new Category(['cani']),'fa-solid fa-dog'),
+    new Product('monge', 'cibo', 'Monge All Breeds Adult Salmone e Riso', 49.99, './img/monge_salmone_riso.webp', new Category(['cani']),'fa-solid fa-dog'),
+    new Product('natural trainer', 'cibo', 'Natural Trainer Gatto Sterilised Salmone', 2.99, './img/natural_trainer_salmone.webp', new Category(['gatti']), 'fa-solid fa-cat'),
+    new Product('yes', 'giochi', 'Pallina Peluche Rosa', 1.99, './img/pallina_peluche_rosa.webp', new Category(['gatti']), 'fa-solid fa-cat'),
+    new Product('luna e teo', 'cucce', 'Cuccia Ciambella Pelosa Beige', 27.99, './img/ciambella_pelosa_beige.webp', new Category(['gatti']), 'fa-solid fa-cat'),
+];
 
-$array = array($products);
-$result = $products[0]->category?->animals;
+$animalsType = [
+    new Category(['cani']),
+    new Category(['gatti']),
+];
 
-/* $products = [
-    new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', '4,99', 'lovedi_palla_fucsia', 'cani'),
-    new Product('mast', 'cucce', 'Brandina in alluminio blu', '29,99', 'mast_brandina', 'cani'),
-    new Product('monge', 'cibo', 'Monge All Breeds Adult Salmone e Riso', '49,99', 'monge_salmone_riso', 'cani'),
-    new Product('natural tarainer', 'cibo', 'Natural Trainer Gatto Sterilised Salmone', '2,99', 'natural_trainer_salmone', 'gatti'),
-    new Product('yes', 'giochi', 'Pallina Peluche Rosa', '1,99', 'pallina_peluche_rosa', 'gatti'),
-    new Product('luna e teo', 'cucce', 'Cuccia Ciambella Pelosa Beige', '27,99', 'ciambella_pelosa_beige', 'gatti'),
-]; */
 
-/* var_dump($products); */
+
+
+
+
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Prodotti</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
-    
-<?php
-echo $result;
+    <div class="container">
+        <h1>Prodotti</h1>
+        <div class="row">
+            <?php foreach ($products as $product) : ?>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="<?php echo $product->image; ?>" class="card-img-top" alt="<?php echo $product->name; ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $product->name; ?></h5>
+                            <p class="card-text">Tipo: <?php echo $product->type; ?></p>
+                            <p class="card-text">Descrizione: <?php echo $product->description; ?></p>
+                            <p class="card-text">Prezzo: $<?php echo $product->price; ?></p>
+                            <p class="card-text">Categoria: <?php echo $product->category->animals[0]; ?></p>
+                            <i class="<?php echo $product->icon; ?>"></i>
+                            
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 
-?>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
