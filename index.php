@@ -17,8 +17,11 @@ organizzate il progetto come visto stamattina a lezione usando varie sottocartel
 
 <?php
 
+/* CREAZIONE DELLA CLASSE */
 class Product
 {
+    // Variabili di istanza (queste rappresentano le caratteristiche di un prodotto).
+    // Queste sono public, quindi si può accedere dall'esterno della classe.
     public $name;
     public $type;
     public $description;
@@ -27,8 +30,13 @@ class Product
     public $category;
     /* public $icon; */
 
+
+    /* COSTRUTTORE DELLA CLASSE */
+
+    // Quando si crea un nuovo oggetto, in questo caso "Product", il costruttore prende i dati necessari per creare un nuovo prodotto.
     public function __construct($name, $type, $description, $price, $image, Category $category, /* $icon */)
     {
+        //  I dati vengono assegnati alle proprietà dell'oggetto Product utilizzando la sintassi $this->proprietà = variabile.
         $this->name = $name;
         $this->type = $type;
         $this->description = $description;
@@ -39,6 +47,9 @@ class Product
     }
 }
 
+/* CREAZIONE DI UNA SECONDA CLASSE */
+
+// Classe figlia di "Product"
 class Category
 {
     public $animals;
@@ -49,8 +60,10 @@ class Category
     }
 }
 
-
+// Array che contiene una serie di oggetti "Product"
 $products = [
+
+    // Ogni prodotto viene creato grazie ai dati del costruttore della classe "Product"
     new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', 4.99, './img/lovedi_palla_fucsia.webp', new Category(['cani'])),
     new Product('mast', 'cucce', 'Brandina in alluminio blu', 29.99, './img/mast_brandina.webp', new Category(['cani'])),
     new Product('monge', 'cibo', 'Monge All Breeds Adult Salmone e Riso', 49.99, './img/monge_salmone_riso.webp', new Category(['cani'])),
@@ -82,6 +95,8 @@ $animalsType = [
     <div class="container mt-5">
         <h1>Prodotti</h1>
         <div class="row">
+
+            <!-- Con foreach iteriamo attraverso l'array $products, che contiene oggetti Product, e per ciascun oggetto, creiamo una scheda per il prodotto -->
             <?php foreach ($products as $product) : ?>
                 <div class="col-md-4 mb-3">
                     <div class="card h-100 m-5">
@@ -92,10 +107,12 @@ $animalsType = [
                             <p class="card-text"><strong>Descrizione:</strong> <?php echo $product->description; ?></p>
                             <p class="card-text"><strong>Prezzo: €</strong><?php echo $product->price; ?></p>
                             <p class="card-text"><strong>Categoria:</strong> <?php echo $product->category->animals[0]; ?></p>
+
+                            <!-- Con questa condizione if elseif controlla la categoria così da associare un'icona. Con animals[0] diciamo di partire dal primo elemento dell'array  -->
                             <?php if ($product->category->animals[0] === 'cani') : ?>
                                 <i class="fas fa-dog"></i>
                             <?php elseif ($product->category->animals[0] === 'gatti') : ?>
-                                <i class="fas fa-cat"></i> 
+                                <i class="fas fa-cat"></i>
                             <?php endif; ?>
 
                         </div>
