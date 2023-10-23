@@ -121,6 +121,8 @@ trait message
             if ($this->getAvailable() === '') {
                 throw new Exception('Prodotto terminato');
             }
+
+            // La variabile $e (che può avere qualsiasi nome valido, ma è una pratica comune usare $e) contiene un'istanza dell'eccezione catturata.
         } catch (Exception $e) {
             echo '<br><span style="color: red;">!!!ATTENZIONE!!!: ' . $e->getMessage() . '</span>';
         }
