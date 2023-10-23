@@ -11,6 +11,7 @@ class Product
     public $price;
     public $image;
     public $category;
+    public $available;
 
     use message;
 
@@ -20,7 +21,7 @@ class Product
     /* COSTRUTTORE DELLA CLASSE */
 
     // Quando si crea un nuovo oggetto, in questo caso "Product", il costruttore prende i dati necessari per creare un nuovo prodotto.
-    public function __construct($name, $type, $description, $price, $image, Category $category, /* $icon */)
+    public function __construct($name, $type, $description, $price, $image, Category $category, $available/* $icon */)
     {
         //  I dati vengono assegnati alle proprietà dell'oggetto Product utilizzando la sintassi $this->proprietà = variabile.
         $this->setName($name);
@@ -29,6 +30,7 @@ class Product
         $this->setPrice($price);
         $this->setImage($image);
         $this->setCategory($category);
+        $this->setAvailable($available);
         /* $this->icon = $icon; */
     }
 
@@ -95,10 +97,19 @@ class Product
     {
         return $this->category;
     }
+    public function setAvailable($available)
+    {
+        $this->available = $available;
+    }
+
+    public function getAvailable()
+    {
+        return $this->available;
+    }
 };
 
 trait message {
-    public function msg() {
-        echo "Questo è il messaggio del mio trait";
+    public function notAvailable() {
+        echo "Non disponibile";
     }
 };
