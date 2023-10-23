@@ -17,7 +17,10 @@ organizzate il progetto come visto stamattina a lezione usando varie sottocartel
 
 <?php
 
-require __dir__ . '/Models/Product.php';
+ini_set('display_errors',1);
+error_reporting(E_ALL);
+
+require __DIR__ . '/Models/Product.php';
 
 require __DIR__ . '/Models/Category.php';
 
