@@ -11,6 +11,8 @@ class Product
     public $price;
     public $image;
     public $category;
+
+    use message;
     /* public $icon; */
 
 
@@ -92,4 +94,15 @@ class Product
     {
         return $this->category;
     }
-}
+};
+
+
+trait message {
+    public function msg(){
+        echo "ciao";
+    }
+};
+
+$test = new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', 4.99, './img/lovedi_palla_fucsia.webp', new Category(['cani']));
+
+echo $test->msg();
