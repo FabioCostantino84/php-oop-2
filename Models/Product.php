@@ -108,8 +108,21 @@ class Product
     }
 };
 
-trait message {
-    public function notAvailable() {
-        echo "Non disponibile";
+/* I trait sono utilizzati per riutilizzare metodi in diverse classi. */
+trait message
+{
+    // Questo metodo può essere chiamato anche da alter classi perchè è pubblico
+    public function notAvailable()
+    {
+        echo "Non Disponibile";
+
+        try {
+            // verifica se la funzione getAvailable() restituisce una stringa vuota.erifica se la funzione getAvailable() restituisce una stringa vuota.
+            if ($this->getAvailable() === '') {
+                throw new Exception('Prodotto terminato');
+            }
+        } catch (Exception $e) {
+            echo '<br><span style="color: red;">!!!ATTENZIONE!!!: ' . $e->getMessage() . '</span>';
+        }
     }
-};
+}
