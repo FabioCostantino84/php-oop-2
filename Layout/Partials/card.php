@@ -1,7 +1,12 @@
 <div class="card h-100 m-5">
     <img src="<?php echo $product->image; ?>" class="card-img-top img-fluid p-5" alt="<?php echo $product->name; ?>">
     <div class="card-body">
-        <h5 class="card-title text-uppercase"><?php echo $product->name; ?></h5>
+
+        <!-- aggiunto il TRAIT msg() !!! usarlo con un senso logico -->
+        <h5 class="card-title text-uppercase"><?php echo $product->msg(); ?></h5>
+
+        <!-- RIPRISTINARLO UNA VOLTA AGGIUSTATO IL TRAIT -->
+        <!-- <h5 class="card-title text-uppercase"><?php echo $product->name; ?></h5> -->
         <p class="card-text"><strong>Tipo:</strong> <?php echo $product->type; ?></p>
         <p class="card-text"><strong>Descrizione:</strong> <?php echo $product->description; ?></p>
         <p class="card-text"><strong>Prezzo: €</strong><?php echo $product->price; ?></p>

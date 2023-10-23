@@ -13,6 +13,7 @@ class Product
     public $category;
 
     use message;
+
     /* public $icon; */
 
 
@@ -96,13 +97,8 @@ class Product
     }
 };
 
-
 trait message {
-    public function msg(){
-        echo "ciao";
+    public function msg() {
+        echo "Questo è il messaggio del mio trait";
     }
 };
-
-$test = new Product('lovedi', 'giochi', 'Palla Tpr con Punte Fucsia', 4.99, './img/lovedi_palla_fucsia.webp', new Category(['cani']));
-
-echo $test->msg();
